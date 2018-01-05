@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image 'python:3.6.4-jessie'
+      args '-e http_proxy=${http_proxy} -e https_proxy=${https_proxy}'
     }
     
   }
@@ -13,9 +14,5 @@ pip install -U pytest
 pytest .'''
       }
     }
-  }
-  environment {
-    http_proxy = "${http_proxy}"
-    https_proxy = "${https_proxy}"
   }
 }
