@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Unit test') {
       steps {
-        sh '''pip install -U pytest
+        sh '''env
+pip install -U pytest
 pytest .'''
       }
     }
